@@ -249,6 +249,16 @@ h3 {
   font-size: 0.95rem;
 }
 
+.hero-trust {
+  margin-top: 20px;
+  color: var(--gold-bright);
+  font-size: 0.85rem;
+  text-align: center;
+  font-weight: 500;
+  letter-spacing: 1px;
+  opacity: 0.9;
+}
+
 .product-card h3 {
   font-size: 1.2rem;
 }

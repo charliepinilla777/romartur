@@ -53,6 +53,116 @@
     rel="stylesheet"
   />
   <link rel="stylesheet" href="css/styles.css" />
+  
+  <!-- JSON-LD Schema Markup for Local Business -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "JewelryStore",
+    "name": "Romartur",
+    "description": "Expertos en talla de joyas, comercio de esmeraldas colombianas y cursos de joyería en Bogotá",
+    "image": "https://romartur.vercel.app/og-image.jpg",
+    "logo": "https://romartur.vercel.app/favicon.svg",
+    "url": "https://romartur.vercel.app",
+    "telephone": "+573015400633",
+    "email": "contacto@romartur.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Cra 7 #12a-20 Local 18",
+      "addressLocality": "Bogotá",
+      "addressRegion": "Cundinamarca",
+      "postalCode": "111711",
+      "addressCountry": "CO"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "4.5979",
+      "longitude": "-74.072"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "priceRange": "$$",
+    "currenciesAccepted": "COP",
+    "paymentAccepted": "Cash, Credit Card, Debit Card",
+    "areaServed": {
+      "@type": "City",
+      "name": "Bogotá"
+    },
+    "sameAs": [
+      "https://instagram.com/romartur",
+      "https://facebook.com/romartur"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Catálogo de Joyas y Esmeraldas",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Anillos de Esmeralda",
+            "description": "Anillos artesanales con esmeraldas colombianas auténticas"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Collares",
+            "description": "Collares de oro y plata con piedras preciosas"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Aretes",
+            "description": "Aretes elegantes con diseños únicos"
+          }
+        }
+      ]
+    },
+    "makesOffer": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Talla de Joyas",
+          "description": "Servicio profesional de talla y diseño de joyas a medida"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "EducationalOccupationalProgram",
+          "name": "Cursos de Joyería",
+          "description": "Formación profesional en joyería y trabajo con esmeraldas",
+          "provider": {
+            "@type": "Organization",
+            "name": "Romartur"
+          }
+        }
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "47"
+    }
+  }
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -107,16 +217,17 @@
     <section class="hero">
       <div class="container hero-content">
         <div class="hero-text">
-          <p class="eyebrow">Joyería y Esmeraldas</p>
-          <h1>Elegancia, precisión y tradición en cada pieza.</h1>
+          <p class="eyebrow">Esmeraldas Colombianas · La Candelaria, Bogotá</p>
+          <h1>Transforma tu pasión por las joyas en un oficio de lujo</h1>
           <p>
-            Romartur se especializa en talla de joyas, comercio y formación para quienes quieren aprender
-            el arte de la joyería y las esmeraldas.
+            <strong>Descubre piezas únicas</strong> talladas a mano con esmeraldas colombianas auténticas. 
+            Aprende técnicas profesionales de joyería con expertos en nuestro taller del centro histórico.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#coleccion">Ver catálogo</a>
-            <a class="btn btn-secondary" href="#cursos">Conoce los cursos</a>
+            <a class="btn btn-primary" href="https://wa.me/573015400633?text=Hola%20Romartur,%20quiero%20agendar%20una%20visita%20al%20taller" target="_blank">Agenda tu visita gratis</a>
+            <a class="btn btn-secondary" href="#coleccion">Explorar catálogo</a>
           </div>
+          <p class="hero-trust">✦ Más de 15 años de experiencia · Certificación artesanal · Garantía de autenticidad ✦</p>
         </div>
         <div class="carousel">
           <div class="carousel-track">
