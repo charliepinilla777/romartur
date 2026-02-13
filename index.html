@@ -3,7 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Romartur | Joyería y Esmeraldas</title>
+  
+  <!-- SEO Meta Tags -->
+  <title>Romartur | Joyería, Esmeraldas y Cursos en Bogotá | La Candelaria</title>
+  <meta name="description" content="Romartur - Expertos en talla de joyas, comercio de esmeraldas colombianas y cursos de joyería. Ubicados en La Candelaria, Bogotá. Cra 7 #12a-20 Local 18." />
+  <meta name="keywords" content="joyería bogotá, esmeraldas colombianas, talla de joyas, cursos joyería, anillos, collares, aretes, dijes, pulseras, camándulas, la candelaria, joyería artesanal" />
+  <meta name="author" content="Romartur" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://romartur.vercel.app" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://romartur.vercel.app" />
+  <meta property="og:title" content="Romartur | Joyería y Esmeraldas en Bogotá" />
+  <meta property="og:description" content="Talla de joyas, comercio de esmeraldas colombianas y cursos profesionales. Visítanos en La Candelaria, Bogotá." />
+  <meta property="og:image" content="https://romartur.vercel.app/og-image.jpg" />
+  <meta property="og:locale" content="es_CO" />
+  <meta property="og:site_name" content="Romartur" />
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://romartur.vercel.app" />
+  <meta name="twitter:title" content="Romartur | Joyería y Esmeraldas en Bogotá" />
+  <meta name="twitter:description" content="Talla de joyas, comercio de esmeraldas colombianas y cursos profesionales en La Candelaria, Bogotá." />
+  <meta name="twitter:image" content="https://romartur.vercel.app/og-image.jpg" />
+  
+  <!-- Additional Meta Tags -->
+  <meta name="theme-color" content="#6B7456" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="format-detection" content="telephone=no" />
+  
+  <!-- Geo Tags -->
+  <meta name="geo.region" content="CO-DC" />
+  <meta name="geo.placename" content="Bogotá" />
+  <meta name="geo.position" content="4.5979;-74.072" />
+  <meta name="ICBM" content="4.5979, -74.072" />
+  
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -78,18 +114,18 @@
         </div>
         <div class="carousel">
           <div class="carousel-track">
-            <div class="carousel-slide placeholder active">Foto 1</div>
-            <div class="carousel-slide placeholder">Foto 2</div>
-            <div class="carousel-slide placeholder">Foto 3</div>
-            <div class="carousel-slide placeholder">Foto 4</div>
+            <div class="carousel-slide placeholder active" role="img" aria-label="Imagen 1 del carrusel">Foto 1</div>
+            <div class="carousel-slide placeholder" role="img" aria-label="Imagen 2 del carrusel" loading="lazy">Foto 2</div>
+            <div class="carousel-slide placeholder" role="img" aria-label="Imagen 3 del carrusel" loading="lazy">Foto 3</div>
+            <div class="carousel-slide placeholder" role="img" aria-label="Imagen 4 del carrusel" loading="lazy">Foto 4</div>
           </div>
           <button class="carousel-btn carousel-prev" aria-label="Anterior">‹</button>
           <button class="carousel-btn carousel-next" aria-label="Siguiente">›</button>
-          <div class="carousel-indicators">
-            <span class="indicator active" data-slide="0"></span>
-            <span class="indicator" data-slide="1"></span>
-            <span class="indicator" data-slide="2"></span>
-            <span class="indicator" data-slide="3"></span>
+          <div class="carousel-indicators" role="tablist" aria-label="Indicadores de carrusel">
+            <span class="indicator active" data-slide="0" role="tab" aria-label="Ir a imagen 1"></span>
+            <span class="indicator" data-slide="1" role="tab" aria-label="Ir a imagen 2"></span>
+            <span class="indicator" data-slide="2" role="tab" aria-label="Ir a imagen 3"></span>
+            <span class="indicator" data-slide="3" role="tab" aria-label="Ir a imagen 4"></span>
           </div>
         </div>
       </div>
@@ -307,6 +343,18 @@
             <p><strong>📍 Ubicación:</strong> Cra 7 #12a-20 Local 18, Barrio La Candelaria, Bogotá</p>
             <p><strong>📞 WhatsApp:</strong> <a href="https://wa.me/573015400633" target="_blank" rel="noopener">+57 301 540 0633</a></p>
           </div>
+          <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.8217436!2d-74.072!3d4.5979!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f99a7ecafffff%3A0x8ac7f1cc6e6f1111!2sCarrera%207%20%2312a-20%2C%20Bogot%C3%A1%2C%20Colombia!5e0!3m2!1ses!2sco!4v1234567890"
+              width="100%"
+              height="300"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Ubicación de Romartur en La Candelaria, Bogotá">
+            </iframe>
+          </div>
         </div>
         <form class="contact-form" id="contact-form">
           <input type="text" name="nombre" placeholder="Nombre" required />
@@ -333,6 +381,18 @@
       </div>
     </div>
   </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/573015400633?text=Hola%20Romartur,%20me%20interesa%20saber%20más%20sobre%20sus%20servicios" 
+     class="whatsapp-float" 
+     target="_blank" 
+     rel="noopener"
+     aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 0C7.164 0 0 7.164 0 16c0 2.828.744 5.484 2.04 7.788L0 32l8.396-2.204A15.924 15.924 0 0016 32c8.836 0 16-7.164 16-16S24.836 0 16 0z" fill="#25D366"/>
+      <path d="M25.36 22.78c-.384 1.08-1.908 1.98-3.132 2.244-.828.18-1.908.324-5.544-1.188-4.656-1.932-7.668-6.612-7.896-6.912-.228-.3-1.86-2.472-1.86-4.716 0-2.244 1.176-3.348 1.596-3.804.42-.456.912-.564 1.224-.564.3 0 .612.012.876.024.276.012.648-.108.996.756.36.888 1.224 2.988 1.332 3.204.108.216.18.468.036.768-.144.3-.216.48-.432.744-.216.264-.456.588-.648.792-.216.228-.444.468-.192.912.252.444 1.116 1.836 2.4 2.976 1.644 1.464 3.024 1.92 3.456 2.136.432.216.684.18.936-.108.252-.288 1.08-1.26 1.368-1.692.288-.432.576-.36.972-.216.396.144 2.496 1.176 2.928 1.392.432.216.72.324.828.504.108.18.108 1.044-.276 2.124z" fill="#fff"/>
+    </svg>
+  </a>
 
   <script src="js/main.js"></script>
 </body>
