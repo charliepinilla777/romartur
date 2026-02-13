@@ -725,6 +725,40 @@ h3 {
   font-size: 0.9rem;
 }
 
+.contact-info {
+  margin-top: 20px;
+  padding: 16px;
+  border-left: 3px solid var(--gold-bright);
+  background: rgba(74, 80, 56, 0.3);
+  border-radius: 8px;
+}
+
+.contact-info p {
+  margin: 8px 0;
+  font-size: 0.95rem;
+}
+
+.contact-info a {
+  color: var(--gold-bright);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.contact-info a:hover {
+  color: var(--emerald-bright);
+  text-decoration: underline;
+}
+
+.site-footer a {
+  color: var(--gold-bright);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.site-footer a:hover {
+  color: var(--emerald-bright);
+}
+
 .contact-form input,
 .contact-form textarea {
   background: rgba(74, 80, 56, 0.5);
