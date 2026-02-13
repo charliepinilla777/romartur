@@ -23,6 +23,16 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   font-family: "Montserrat", sans-serif;
   background: var(--olive-dark);
@@ -796,6 +806,7 @@ h3 {
   z-index: 9999;
   transition: transform 0.3s, box-shadow 0.3s;
   animation: pulse-whatsapp 2s infinite;
+  will-change: transform;
 }
 
 .whatsapp-float:hover {
@@ -814,6 +825,18 @@ h3 {
   }
   50% {
     box-shadow: 0 4px 20px rgba(37, 211, 102, 0.7);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-float {
+    animation: none;
+  }
+  
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
