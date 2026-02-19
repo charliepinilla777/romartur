@@ -41,6 +41,18 @@ body {
     linear-gradient(180deg, #1a1a1a 0%, #2a2d24 60%, #1a1a1a 100%);
   color: var(--pearl);
   line-height: 1.7;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(244, 208, 63, 0.08) 1px, transparent 1px);
+  background-size: 120px 120px;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: -1;
 }
 
 h1, h2, h3, h4 {
@@ -636,6 +648,38 @@ h3 {
   display: inline-block;
   transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
   font-family: "Montserrat", sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  border: 1px solid rgba(244, 208, 63, 0.55);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.btn.btn-animated::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: conic-gradient(from 120deg, transparent, rgba(244, 208, 63, 0.65), transparent 45%);
+  animation: glow 2.8s linear infinite;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+@keyframes glow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .btn-primary {
