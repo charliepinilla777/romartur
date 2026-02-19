@@ -9,6 +9,7 @@ if (navToggle) {
 
 const contactForm = document.querySelector("#contact-form");
 const statusText = document.querySelector(".form-status");
+const orderForm = document.querySelector("#order-form");
 
 if (contactForm) {
   contactForm.addEventListener("submit", (event) => {
@@ -17,6 +18,25 @@ if (contactForm) {
       statusText.textContent = "Gracias por tu mensaje. Te contactaremos pronto.";
     }
     contactForm.reset();
+  });
+}
+
+if (orderForm) {
+  orderForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const data = new FormData(orderForm);
+    const nombre = data.get("nombre");
+    const telefono = data.get("telefono");
+    const producto = data.get("producto");
+    const mensaje = data.get("mensaje");
+    const texto = `Hola Emerald Trade, soy ${nombre}. Mi teléfono es ${telefono}. Me interesa: ${producto}. Detalles: ${mensaje}`;
+    const url = `https://wa.me/573028152276?text=${encodeURIComponent(texto)}`;
+    window.open(url, "_blank");
+    const orderStatus = orderForm.querySelector(".form-status");
+    if (orderStatus) {
+      orderStatus.textContent = "Pedido enviado. Te responderemos por WhatsApp.";
+    }
+    orderForm.reset();
   });
 }
 
@@ -57,3 +77,93 @@ indicators.forEach((indicator, index) => {
 setInterval(() => {
   showSlide(currentSlide + 1);
 }, 5000);
+
+const catalogItems = [
+  { type: "pulsera", name: "Pulsera Esmeralda Viva", price: "$1.450.000 COP" },
+  { type: "pulsera", name: "Pulsera Aura Dorada", price: "$1.980.000 COP" },
+  { type: "anillo", name: "Anillo Reino Verde", price: "$2.850.000 COP" },
+  { type: "anillo", name: "Anillo Aura Imperial", price: "$3.450.000 COP" },
+  { type: "collar", name: "Collar Niebla Dorada", price: "$2.750.000 COP" },
+  { type: "collar", name: "Collar Esencia Real", price: "$3.150.000 COP" },
+  { type: "aretes", name: "Aretes Halo Esmeralda", price: "$1.150.000 COP" },
+  { type: "aretes", name: "Aretes Aurora Dorada", price: "$1.420.000 COP" }
+];
+
+const catalogContainer = document.querySelector("#dynamic-catalog");
+const catalogFilters = document.querySelectorAll(".catalog-filter");
+
+function renderCatalog(filter) {
+  if (!catalogContainer) return;
+  catalogContainer.innerHTML = "";
+  const items = filter && filter !== "all" ? catalogItems.filter(item => item.type === filter) : catalogItems;
+  items.forEach(item => {
+    const card = document.createElement("article");
+    card.className = "product-card";
+    card.innerHTML = `
+      <div class="product-image placeholder">Foto</div>
+      <div class="product-info">
+        <span class="product-type">${item.type}</span>
+        <h3>${item.name}</h3>
+        <p class="product-price">${item.price}</p>
+      </div>
+    `;
+    catalogContainer.appendChild(card);
+  });
+}
+
+if (catalogContainer) {
+  renderCatalog("all");
+}
+
+catalogFilters.forEach(button => {
+  button.addEventListener("click", () => {
+    catalogFilters.forEach(filterBtn => filterBtn.classList.remove("active"));
+    button.classList.add("active");
+    renderCatalog(button.dataset.filter);
+  });
+});
+
+const kilaticoBubble = document.querySelector(".kilatico-bubble");
+const kilaticoPanel = document.querySelector(".kilatico-panel");
+const kilaticoLangButtons = document.querySelectorAll(".lang-btn");
+const kilaticoBody = document.querySelector(".kilatico-body");
+const kilaticoCTA = document.querySelector(".kilatico-cta");
+
+const kilaticoMessages = {
+  es: "Hola, soy Kilatico ✨ ¿Quieres verte exclusivo y elegante con algo único y artesanal?",
+  en: "Hi, I'm Kilatico ✨ Want to look exclusive and elegant with something unique and handcrafted?"
+};
+
+function setKilaticoMessage(lang) {
+  if (!kilaticoBody) return;
+  kilaticoBody.innerHTML = `<div class="kilatico-message bot">${kilaticoMessages[lang]}</div>`;
+}
+
+if (kilaticoBubble && kilaticoPanel) {
+  kilaticoBubble.addEventListener("click", () => {
+    const isHidden = kilaticoPanel.hasAttribute("hidden");
+    if (isHidden) {
+      kilaticoPanel.removeAttribute("hidden");
+    } else {
+      kilaticoPanel.setAttribute("hidden", "");
+    }
+  });
+}
+
+kilaticoLangButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    kilaticoLangButtons.forEach(btn => btn.classList.remove("active"));
+    button.classList.add("active");
+    setKilaticoMessage(button.dataset.lang);
+  });
+});
+
+if (kilaticoCTA) {
+  kilaticoCTA.addEventListener("click", () => {
+    const activeLang = document.querySelector(".lang-btn.active")?.dataset.lang || "es";
+    const texto = activeLang === "en"
+      ? "Hi Emerald Trade, I want to buy an exclusive bracelet."
+      : "Hola Emerald Trade, quiero comprar una pulsera exclusiva.";
+    window.open(`https://wa.me/573028152276?text=${encodeURIComponent(texto)}`, "_blank");
+  });
+}

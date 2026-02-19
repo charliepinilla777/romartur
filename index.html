@@ -380,62 +380,72 @@
       </div>
     </section>
 
+    <section id="promociones" class="section luxury-section">
+      <div class="container">
+        <div class="section-header centered">
+          <h2>Promociones exclusivas</h2>
+          <p>Beneficios premium y lanzamientos limitados para clientes que buscan distinción.</p>
+          <div class="divider"></div>
+        </div>
+        <div class="luxury-grid">
+          <article class="luxury-card">
+            <h3>Semana del brillo</h3>
+            <p>Hasta 15% en pulseras artesanales con esmeraldas naturales.</p>
+          </article>
+          <article class="luxury-card">
+            <h3>Ediciones limitadas</h3>
+            <p>Reserva anticipada de joyas de autor con certificación internacional.</p>
+          </article>
+          <article class="luxury-card">
+            <h3>Regalos premium</h3>
+            <p>Empaque de lujo y grabado personalizado en compras superiores a $2.5M.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section id="coleccion" class="section">
       <div class="container">
         <div class="section-header">
-          <h2>Catálogo destacado</h2>
-          <p>Tarjetas listas para tu catálogo con <strong>nombre</strong>, <strong>precio</strong> y <strong>tipo de joya</strong>.</p>
+          <h2>Catálogo dinámico</h2>
+          <p>Explora la selección premium. Actualizamos precios y piezas en tiempo real.</p>
         </div>
-        <div class="grid product-grid">
-          <article class="product-card">
-            <div class="product-image placeholder">Foto</div>
-            <div class="product-info">
-              <span class="product-type">Anillo</span>
-              <h3>Brillo Esmeralda</h3>
-              <p class="product-price">$1.850.000 COP</p>
-            </div>
-          </article>
-          <article class="product-card">
-            <div class="product-image placeholder">Foto</div>
-            <div class="product-info">
-              <span class="product-type">Collar</span>
-              <h3>Destello Rubí</h3>
-              <p class="product-price">$2.450.000 COP</p>
-            </div>
-          </article>
-          <article class="product-card">
-            <div class="product-image placeholder">Foto</div>
-            <div class="product-info">
-              <span class="product-type">Aretes</span>
-              <h3>Sol de Zafiro</h3>
-              <p class="product-price">$1.250.000 COP</p>
-            </div>
-          </article>
-          <article class="product-card">
-            <div class="product-image placeholder">Foto</div>
-            <div class="product-info">
-              <span class="product-type">Pulsera</span>
-              <h3>Trama Dorada</h3>
-              <p class="product-price">$980.000 COP</p>
-            </div>
-          </article>
-          <article class="product-card">
-            <div class="product-image placeholder">Foto</div>
-            <div class="product-info">
-              <span class="product-type">Anillo</span>
-              <h3>Corona Imperial</h3>
-              <p class="product-price">$3.200.000 COP</p>
-            </div>
-          </article>
-          <article class="product-card">
-            <div class="product-image placeholder">Foto</div>
-            <div class="product-info">
-              <span class="product-type">Collar</span>
-              <h3>Noche Esmeralda</h3>
-              <p class="product-price">$2.900.000 COP</p>
-            </div>
-          </article>
+        <div class="catalog-controls">
+          <button class="btn btn-secondary catalog-filter" data-filter="all">Todo</button>
+          <button class="btn btn-secondary catalog-filter" data-filter="pulsera">Pulseras</button>
+          <button class="btn btn-secondary catalog-filter" data-filter="anillo">Anillos</button>
+          <button class="btn btn-secondary catalog-filter" data-filter="collar">Collares</button>
+          <button class="btn btn-secondary catalog-filter" data-filter="aretes">Aretes</button>
         </div>
+        <div class="grid product-grid" id="dynamic-catalog"></div>
+      </div>
+    </section>
+
+    <section id="pedido" class="section dark">
+      <div class="container split">
+        <div>
+          <h2>Pedido inmediato por WhatsApp</h2>
+          <p>Déjanos tu pedido y nuestro equipo te responderá con disponibilidad y asesoría VIP.</p>
+          <ul class="list">
+            <li>Confirmación rápida y segura</li>
+            <li>Envíos nacionales con empaque premium</li>
+            <li>Opciones de pago flexibles</li>
+          </ul>
+        </div>
+        <form class="order-form" id="order-form">
+          <input type="text" name="nombre" placeholder="Nombre" required />
+          <input type="tel" name="telefono" placeholder="Teléfono" required />
+          <select name="producto" required>
+            <option value="">Selecciona una pieza</option>
+            <option value="Pulsera artesanal">Pulsera artesanal</option>
+            <option value="Pulsera premium">Pulsera premium</option>
+            <option value="Anillo de compromiso">Anillo de compromiso</option>
+            <option value="Collar exclusivo">Collar exclusivo</option>
+          </select>
+          <textarea rows="4" name="mensaje" placeholder="Describe tu pedido" required></textarea>
+          <button class="btn btn-primary btn-animated" type="submit">Enviar pedido</button>
+          <p class="form-status" aria-live="polite"></p>
+        </form>
       </div>
     </section>
 
@@ -623,7 +633,7 @@
   </footer>
 
   <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/573028152276?text=Hola%20Radiant%20Gold%20Gems,%20me%20interesa%20saber%20más%20sobre%20sus%20servicios" 
+  <a href="https://wa.me/573028152276?text=Hola%20Emerald%20Trade,%20me%20interesa%20saber%20más%20sobre%20sus%20servicios" 
      class="whatsapp-float" 
      target="_blank" 
      rel="noopener"
@@ -633,6 +643,31 @@
       <path d="M25.36 22.78c-.384 1.08-1.908 1.98-3.132 2.244-.828.18-1.908.324-5.544-1.188-4.656-1.932-7.668-6.612-7.896-6.912-.228-.3-1.86-2.472-1.86-4.716 0-2.244 1.176-3.348 1.596-3.804.42-.456.912-.564 1.224-.564.3 0 .612.012.876.024.276.012.648-.108.996.756.36.888 1.224 2.988 1.332 3.204.108.216.18.468.036.768-.144.3-.216.48-.432.744-.216.264-.456.588-.648.792-.216.228-.444.468-.192.912.252.444 1.116 1.836 2.4 2.976 1.644 1.464 3.024 1.92 3.456 2.136.432.216.684.18.936-.108.252-.288 1.08-1.26 1.368-1.692.288-.432.576-.36.972-.216.396.144 2.496 1.176 2.928 1.392.432.216.72.324.828.504.108.18.108 1.044-.276 2.124z" fill="#fff"/>
     </svg>
   </a>
+
+  <div class="kilatico-chatbot" aria-live="polite">
+    <button class="kilatico-bubble" type="button" aria-label="Abrir chat Kilatico">
+      <span class="kilatico-eye"></span>
+      <span class="kilatico-eye"></span>
+    </button>
+    <div class="kilatico-panel" hidden>
+      <div class="kilatico-header">
+        <div>
+          <h4>Kilatico</h4>
+          <span>Asistente premium</span>
+        </div>
+        <div class="kilatico-lang">
+          <button class="lang-btn active" data-lang="es">ES</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+      </div>
+      <div class="kilatico-body">
+        <div class="kilatico-message bot">Hola, soy Kilatico ✨ ¿Quieres verte exclusivo y elegante con algo único y artesanal?</div>
+      </div>
+      <div class="kilatico-footer">
+        <button class="btn btn-secondary kilatico-cta" type="button">Ver pulseras</button>
+      </div>
+    </div>
+  </div>
 
   <script src="js/main.js" defer></script>
 </body>
