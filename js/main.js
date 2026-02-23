@@ -179,10 +179,17 @@ if (kilaticoCTA) {
   kilaticoCTA.addEventListener("click", () => {
     const activeLang = document.querySelector(".lang-btn.active")?.dataset.lang || "es";
     const name = document.querySelector("#kilatico-name")?.value || "";
+    const city = document.querySelector("#kilatico-city")?.value || "";
     const product = document.querySelector("#kilatico-product")?.value || "pulseras";
+    const budget = document.querySelector("#kilatico-budget")?.value || "";
+    const size = document.querySelector("#kilatico-size")?.value || "";
+    const date = document.querySelector("#kilatico-date")?.value || "";
+    const custom = document.querySelector("#kilatico-custom")?.value || "si";
+
     const texto = activeLang === "en"
-      ? `Hi Emerald Trade, I'm ${name || "a client"}. I want to buy an exclusive ${product}.`
-      : `Hola Emerald Trade, soy ${name || "cliente"}. Quiero comprar ${product} exclusivo.`;
+      ? `Hi Emerald Trade, I'm ${name || "a client"}. I want an exclusive ${product}. City: ${city || "N/A"}. Budget: ${budget || "N/A"}. Size: ${size || "N/A"}. Special date: ${date || "N/A"}. Custom piece: ${custom === "si" ? "Yes" : "No"}. I want something elegant and handcrafted.`
+      : `Hola Emerald Trade, soy ${name || "cliente"}. Quiero ${product} exclusivo. Ciudad: ${city || "N/A"}. Presupuesto: ${budget || "N/A"}. Talla: ${size || "N/A"}. Fecha especial: ${date || "N/A"}. Joya personalizada: ${custom === "si" ? "Sí" : "No"}. Quiero algo elegante y artesanal.`;
+
     window.open(`https://wa.me/573028152276?text=${encodeURIComponent(texto)}`, "_blank");
   });
 }
