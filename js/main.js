@@ -178,9 +178,11 @@ kilaticoLangButtons.forEach(button => {
 if (kilaticoCTA) {
   kilaticoCTA.addEventListener("click", () => {
     const activeLang = document.querySelector(".lang-btn.active")?.dataset.lang || "es";
+    const name = document.querySelector("#kilatico-name")?.value || "";
+    const product = document.querySelector("#kilatico-product")?.value || "pulseras";
     const texto = activeLang === "en"
-      ? "Hi Emerald Trade, I want to buy an exclusive bracelet."
-      : "Hola Emerald Trade, quiero comprar una pulsera exclusiva.";
+      ? `Hi Emerald Trade, I'm ${name || "a client"}. I want to buy an exclusive ${product}.`
+      : `Hola Emerald Trade, soy ${name || "cliente"}. Quiero comprar ${product} exclusivo.`;
     window.open(`https://wa.me/573028152276?text=${encodeURIComponent(texto)}`, "_blank");
   });
 }
