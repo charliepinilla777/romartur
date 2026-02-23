@@ -129,14 +129,29 @@ const kilaticoLangButtons = document.querySelectorAll(".lang-btn");
 const kilaticoBody = document.querySelector(".kilatico-body");
 const kilaticoCTA = document.querySelector(".kilatico-cta");
 
-const kilaticoMessages = {
-  es: "Hola, soy Kilatico ✨ ¿Quieres verte exclusivo y elegante con algo único y artesanal?",
-  en: "Hi, I'm Kilatico ✨ Want to look exclusive and elegant with something unique and handcrafted?"
-};
+async function fetchKilaticoMessage(lang, name, product) {
+  if (!kilaticoBody) return;
+  try {
+    const response = await fetch("/api/kilatico", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ lang, name, product }),
+    });
+    const data = await response.json();
+    kilaticoBody.innerHTML = `
+      <div class=\"kilatico-message bot\">${data.greeting}</div>
+      <div class=\"kilatico-message bot\">${data.message}</div>
+      <div class=\"kilatico-message bot\">${data.cta}</div>
+    `;
+  } catch (error) {
+    kilaticoBody.innerHTML = `<div class=\"kilatico-message bot\">Hola, soy Kilatico ✨ ¿Quieres verte exclusivo y elegante con algo único y artesanal?</div>`;
+  }
+}
 
 function setKilaticoMessage(lang) {
-  if (!kilaticoBody) return;
-  kilaticoBody.innerHTML = `<div class="kilatico-message bot">${kilaticoMessages[lang]}</div>`;
+  const name = document.querySelector("#kilatico-name")?.value || "";
+  const product = document.querySelector("#kilatico-product")?.value || "pulseras";
+  fetchKilaticoMessage(lang, name, product);
 }
 
 if (kilaticoBubble && kilaticoPanel) {
@@ -144,6 +159,8 @@ if (kilaticoBubble && kilaticoPanel) {
     const isHidden = kilaticoPanel.hasAttribute("hidden");
     if (isHidden) {
       kilaticoPanel.removeAttribute("hidden");
+      const activeLang = document.querySelector(".lang-btn.active")?.dataset.lang || "es";
+      setKilaticoMessage(activeLang);
     } else {
       kilaticoPanel.setAttribute("hidden", "");
     }
