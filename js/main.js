@@ -188,12 +188,8 @@ kilaticoLangButtons.forEach(button => {
 
     const labels = lang === "en"
       ? {
-          cta: "Contact us, we are ready to assist you",
-          name: "Your name",
-          city: "City",
-          budget: "Budget (USD)",
-          size: "Size",
-          date: "Special date",
+          cta: "Contact us",
+          budget: "Budget",
           product: {
             pulseras: "Bracelets",
             anillos: "Rings",
@@ -204,12 +200,8 @@ kilaticoLangButtons.forEach(button => {
           customNo: "Custom piece? No",
         }
       : {
-          cta: "Contáctanos, estaremos listos para atenderte",
-          name: "Tu nombre",
-          city: "Ciudad",
-          budget: "Presupuesto (COP)",
-          size: "Talla",
-          date: "Fecha especial",
+          cta: "Contáctanos",
+          budget: "Presupuesto",
           product: {
             pulseras: "Pulseras",
             anillos: "Anillos",
@@ -220,22 +212,14 @@ kilaticoLangButtons.forEach(button => {
           customNo: "¿Joya personalizada? No",
         };
 
-    const nameInput = document.querySelector("#kilatico-name");
-    const cityInput = document.querySelector("#kilatico-city");
     const budgetInput = document.querySelector("#kilatico-budget");
-    const sizeInput = document.querySelector("#kilatico-size");
-    const dateInput = document.querySelector("#kilatico-date");
     const productSelect = document.querySelector("#kilatico-product");
     const customSelect = document.querySelector("#kilatico-custom");
 
     if (kilaticoCTA) {
       kilaticoCTA.textContent = labels.cta;
     }
-    if (nameInput) nameInput.placeholder = labels.name;
-    if (cityInput) cityInput.placeholder = labels.city;
     if (budgetInput) budgetInput.placeholder = labels.budget;
-    if (sizeInput) sizeInput.placeholder = labels.size;
-    if (dateInput) dateInput.placeholder = labels.date;
 
     if (productSelect) {
       Array.from(productSelect.options).forEach(option => {
@@ -256,17 +240,13 @@ kilaticoLangButtons.forEach(button => {
 if (kilaticoCTA) {
   kilaticoCTA.addEventListener("click", () => {
     const activeLang = document.querySelector(".lang-btn.active")?.dataset.lang || "es";
-    const name = document.querySelector("#kilatico-name")?.value || "";
-    const city = document.querySelector("#kilatico-city")?.value || "";
     const product = document.querySelector("#kilatico-product")?.value || "pulseras";
     const budget = document.querySelector("#kilatico-budget")?.value || "";
-    const size = document.querySelector("#kilatico-size")?.value || "";
-    const date = document.querySelector("#kilatico-date")?.value || "";
     const custom = document.querySelector("#kilatico-custom")?.value || "si";
 
     const texto = activeLang === "en"
-      ? `Hi Emerald Trade, I'm ${name || "a client"}. I want an exclusive ${product}. City: ${city || "N/A"}. Budget: ${budget || "N/A"}. Size: ${size || "N/A"}. Special date: ${date || "N/A"}. Custom piece: ${custom === "si" ? "Yes" : "No"}. I want something elegant and handcrafted.`
-      : `Hola Emerald Trade, soy ${name || "cliente"}. Quiero ${product} exclusivo. Ciudad: ${city || "N/A"}. Presupuesto: ${budget || "N/A"}. Talla: ${size || "N/A"}. Fecha especial: ${date || "N/A"}. Joya personalizada: ${custom === "si" ? "Sí" : "No"}. Quiero algo elegante y artesanal.`;
+      ? `Hi Emerald Trade, I want an exclusive ${product}. Budget: ${budget || "N/A"}. Custom piece: ${custom === "si" ? "Yes" : "No"}. I want something elegant and handcrafted.`
+      : `Hola Emerald Trade, quiero ${product} exclusivo. Presupuesto: ${budget || "N/A"}. Joya personalizada: ${custom === "si" ? "Sí" : "No"}. Quiero algo elegante y artesanal.`;
 
     window.open(`https://wa.me/573028152276?text=${encodeURIComponent(texto)}`, "_blank");
   });
