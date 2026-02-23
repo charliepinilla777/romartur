@@ -131,6 +131,13 @@ const kilaticoCTA = document.querySelector(".kilatico-cta");
 
 async function fetchKilaticoMessage(lang, name, product) {
   if (!kilaticoBody) return;
+
+  const intro = lang === "en"
+    ? "Hello, I'm Kilotiko ✨ and I'm here to help you."
+    : "Hola, soy Kilotiko ✨ y estoy aquí para ayudarte.";
+
+  kilaticoBody.innerHTML = `<div class=\"kilatico-message bot\">${intro}</div>`;
+
   try {
     const response = await fetch("/api/kilatico", {
       method: "POST",
@@ -138,13 +145,19 @@ async function fetchKilaticoMessage(lang, name, product) {
       body: JSON.stringify({ lang, name, product }),
     });
     const data = await response.json();
-    kilaticoBody.innerHTML = `
-      <div class=\"kilatico-message bot\">${data.greeting}</div>
-      <div class=\"kilatico-message bot\">${data.message}</div>
-      <div class=\"kilatico-message bot\">${data.cta}</div>
-    `;
+    kilaticoBody.insertAdjacentHTML(
+      "beforeend",
+      `
+        <div class=\"kilatico-message bot\">${data.greeting}</div>
+        <div class=\"kilatico-message bot\">${data.message}</div>
+        <div class=\"kilatico-message bot\">${data.cta}</div>
+      `
+    );
   } catch (error) {
-    kilaticoBody.innerHTML = `<div class=\"kilatico-message bot\">Hola, soy Kilatico ✨ ¿Quieres verte exclusivo y elegante con algo único y artesanal?</div>`;
+    kilaticoBody.insertAdjacentHTML(
+      "beforeend",
+      `<div class=\"kilatico-message bot\">${lang === "en" ? "I'm ready to help you choose something exclusive." : "Estoy listo para ayudarte a elegir algo exclusivo."}</div>`
+    );
   }
 }
 
