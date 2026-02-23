@@ -133,8 +133,8 @@ async function fetchKilaticoMessage(lang, name, product) {
   if (!kilaticoBody) return;
 
   const intro = lang === "en"
-    ? "Hello, I'm Kilotiko ✨ and I'm here to help you."
-    : "Hola, soy Kilotiko ✨ y estoy aquí para ayudarte.";
+    ? "Hello, I'm Kilatico ✨ and I'm here to help you."
+    : "Hola, soy Kilatico ✨ y estoy aquí para ayudarte.";
 
   kilaticoBody.innerHTML = `<div class=\"kilatico-message bot\">${intro}</div>`;
 
