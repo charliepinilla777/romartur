@@ -171,7 +171,12 @@ kilaticoLangButtons.forEach(button => {
   button.addEventListener("click", () => {
     kilaticoLangButtons.forEach(btn => btn.classList.remove("active"));
     button.classList.add("active");
-    setKilaticoMessage(button.dataset.lang);
+    const lang = button.dataset.lang;
+    const ctaText = lang === "en" ? "Send to WhatsApp" : "Enviar a WhatsApp";
+    if (kilaticoCTA) {
+      kilaticoCTA.textContent = ctaText;
+    }
+    setKilaticoMessage(lang);
   });
 });
 
