@@ -172,10 +172,70 @@ kilaticoLangButtons.forEach(button => {
     kilaticoLangButtons.forEach(btn => btn.classList.remove("active"));
     button.classList.add("active");
     const lang = button.dataset.lang;
-    const ctaText = lang === "en" ? "Send to WhatsApp" : "Enviar a WhatsApp";
+
+    const labels = lang === "en"
+      ? {
+          cta: "Contact us, we are ready to assist you",
+          name: "Your name",
+          city: "City",
+          budget: "Budget (USD)",
+          size: "Size",
+          date: "Special date",
+          product: {
+            pulseras: "Bracelets",
+            anillos: "Rings",
+            collares: "Necklaces",
+            aretes: "Earrings",
+          },
+          customYes: "Custom piece? Yes",
+          customNo: "Custom piece? No",
+        }
+      : {
+          cta: "Contáctanos, estaremos listos para atenderte",
+          name: "Tu nombre",
+          city: "Ciudad",
+          budget: "Presupuesto (COP)",
+          size: "Talla",
+          date: "Fecha especial",
+          product: {
+            pulseras: "Pulseras",
+            anillos: "Anillos",
+            collares: "Collares",
+            aretes: "Aretes",
+          },
+          customYes: "¿Joya personalizada? Sí",
+          customNo: "¿Joya personalizada? No",
+        };
+
+    const nameInput = document.querySelector("#kilatico-name");
+    const cityInput = document.querySelector("#kilatico-city");
+    const budgetInput = document.querySelector("#kilatico-budget");
+    const sizeInput = document.querySelector("#kilatico-size");
+    const dateInput = document.querySelector("#kilatico-date");
+    const productSelect = document.querySelector("#kilatico-product");
+    const customSelect = document.querySelector("#kilatico-custom");
+
     if (kilaticoCTA) {
-      kilaticoCTA.textContent = ctaText;
+      kilaticoCTA.textContent = labels.cta;
     }
+    if (nameInput) nameInput.placeholder = labels.name;
+    if (cityInput) cityInput.placeholder = labels.city;
+    if (budgetInput) budgetInput.placeholder = labels.budget;
+    if (sizeInput) sizeInput.placeholder = labels.size;
+    if (dateInput) dateInput.placeholder = labels.date;
+
+    if (productSelect) {
+      Array.from(productSelect.options).forEach(option => {
+        option.textContent = labels.product[option.value] || option.textContent;
+      });
+    }
+
+    if (customSelect) {
+      const options = customSelect.options;
+      if (options[0]) options[0].textContent = labels.customYes;
+      if (options[1]) options[1].textContent = labels.customNo;
+    }
+
     setKilaticoMessage(lang);
   });
 });
