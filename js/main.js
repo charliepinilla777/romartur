@@ -148,9 +148,9 @@ async function fetchKilaticoMessage(lang, name, product) {
     kilaticoBody.insertAdjacentHTML(
       "beforeend",
       `
-        <div class=\"kilatico-message bot\">${data.greeting}</div>
-        <div class=\"kilatico-message bot\">${data.message}</div>
-        <div class=\"kilatico-message bot\">${data.cta}</div>
+        ${data.greeting ? `<div class=\"kilatico-message bot\">${data.greeting}</div>` : ""}
+        ${data.message ? `<div class=\"kilatico-message bot\">${data.message}</div>` : ""}
+        ${data.cta ? `<div class=\"kilatico-message bot\">${data.cta}</div>` : ""}
       `
     );
   } catch (error) {
@@ -191,10 +191,10 @@ kilaticoLangButtons.forEach(button => {
           cta: "Contact us",
           budget: "Budget",
           product: {
-            pulseras: "Luxury minimalist bracelet",
-            anillos: "Luxury minimalist ring",
-            collares: "Luxury minimalist necklace",
-            aretes: "Luxury minimalist earrings",
+            pulseras: "Bracelet",
+            anillos: "Ring",
+            collares: "Necklace",
+            aretes: "Earrings",
           },
           customYes: "Custom piece? Yes",
           customNo: "Custom piece? No",
@@ -203,10 +203,10 @@ kilaticoLangButtons.forEach(button => {
           cta: "Contáctanos",
           budget: "Presupuesto",
           product: {
-            pulseras: "Pulsera minimalista de lujo",
-            anillos: "Anillo minimalista de lujo",
-            collares: "Collar minimalista de lujo",
-            aretes: "Aretes minimalistas de lujo",
+            pulseras: "Pulsera",
+            anillos: "Anillo",
+            collares: "Collar",
+            aretes: "Aretes",
           },
           customYes: "¿Joya personalizada? Sí",
           customNo: "¿Joya personalizada? No",
